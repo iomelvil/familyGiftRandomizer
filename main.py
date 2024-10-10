@@ -1,31 +1,6 @@
-# This is a sample Python script.
 import os
-import random
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings
-# .
 import pandas as pd
-
 year = 2024
-def print_hi(year):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Ho ho ho, its {year}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-class MyClass:
-    def __init__(self, name, age, family, past_giftee, past_past_giftee):
-        self.name = name
-        self.age = age
-        self.family = family
-        self.past_giftee =past_giftee
-        self.past_past_giftee = past_past_giftee
-    def display_info(self):
-        print(f"First Name: {self.name}")
-        print(f"Age Group:{self.age}")
-        print(f"Family: {self.family}")
-        print(f"Past Giftee: {self.past_giftee}")
-        print(f"Second Past Giftee: {self.past_past_giftee}")
-
 def import_gift_history():
     history_raw = pd.read_csv("Clarke Xmas Gift Giving 2023.csv", header=0)
     history1 = history_raw.dropna(axis=1,how="all")
@@ -52,66 +27,10 @@ def import_rel_grid(name):
     grid = pd.read_csv(os.path.join(str(name)+".csv"),index_col=0)
     # print(grid)
     return grid
-
-# TODO: change family matching behaivor to be a network map of relationships that is checked each time a match is made,
-#  aka bonnie match wendy j, matrix result = sibling, sibling in list=[disallowed relationships] therefore rematch.
-#  need to make relationship df then list of unallowed relationships and add it into rematch condition
-# Press the green button in the gutter to run the script.
-def find_match(df, year):
-    error_code=0
-    adults = df['Giver'].tolist()
-    for giver in df['Giver']:
-        rematch_count=0
-        match = False
-        while match == False:
-            giftee = random.choice(adults)
-            print(f"---------------")
-            print(f"Giver: {giver} -> {giftee}")
-            # print(f"Random Giftee: {giftee}")
-            print(f"giftees remaining: {len(adults)}")
-            past_giftee = df.loc[df['Giver'] == giver, str(year - 1)].values[0]
-            print(f"Past Giftee {year - 1}: {past_giftee}")
-            past_past_giftee = df.loc[df['Giver'] == giver, str(year - 2)].values[0]
-            giver_family = df.loc[df['Giver'] == giver, 'family'].values[0]
-            giftee_family = df.loc[df['Giver'] == giftee, 'family'].values[0]
-            if giver_family == giftee_family:
-                same_family = True
-            else:
-                same_family = False
-
-            print(f"Past Past Giftee {year - 2}: {past_past_giftee}")
-            if giftee == giver:
-                match = False
-                print("illegal match")
-                print("self gift")
-                rematch_count +=1
-            elif giftee == past_giftee or giftee == past_giftee:
-                match = False
-                print("illegal match")
-                print("repeat giftee")
-                rematch_count +=1
-            elif same_family:
-                match = False
-                print("illegal match")
-                print("same family")
-                rematch_count +=1
-            else:
-                match = True
-                adults.remove(giftee)
-                df.loc[df['Giver'] == giver, str(year)] = giftee
-            if rematch_count>= 3:
-                error_code = -1
-            return df, error_code
-
-    print(df.iloc[:, 0:6])  # Columns + current year and past two
-    return df
-
-
 def overlay_excl(grid,df,year):
     for i in range(df.shape[0]):
         grid.at[df.loc[i, 'Giver'],df.loc[i,str(year)]] = 'x'
     # grid.to_csv('overlay_excl.csv',index=True)
-
 
 def find_match_with_grid(df, grid,year):
     # print(df)
@@ -138,16 +57,9 @@ def find_match_with_grid(df, grid,year):
     # print(df)
     return df
 
-    # print(chosen_rows)
-
-
 
 if __name__ == '__main__':
-    print_hi(year)
 
-# Example of creating an instance of the class
-    example = MyClass(name="Kelsey",age="a",family="Dave", past_giftee="John", past_past_giftee="Jane")
-    # example.display_info()
     df = import_last_list()
 
     # Add column for current year, deleting if already exists
@@ -171,6 +83,4 @@ if __name__ == '__main__':
     print(new_combined)
 
     new_combined.to_csv("ClarkeXmasList"+str(year)+".csv", index=False)
-
-
 # See PyCharm help at https://www.jetbrains.com/help/pych
