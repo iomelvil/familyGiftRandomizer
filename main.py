@@ -2,6 +2,7 @@ import os
 import pandas as pd
 
 # Define the year and run file
+#TODO Sometimes the program isnt able to generate a legit match pair (runs out of valid options at end of matching phase) need to add a loop to rerun if this happens. 
 year = 2025
 def import_gift_history():
     """Reads in previoulsly unformatted gift history"""
