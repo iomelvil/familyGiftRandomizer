@@ -1,7 +1,10 @@
 import os
 import pandas as pd
-year = 2024
+
+# Define the year and run file
+year = 2025
 def import_gift_history():
+    """Reads in previoulsly unformatted gift history"""
     history_raw = pd.read_csv("Clarke Xmas Gift Giving 2023.csv", header=0)
     history1 = history_raw.dropna(axis=1,how="all")
     history = history1.dropna(how="all")
@@ -9,7 +12,6 @@ def import_gift_history():
     history_renamed = history.rename(columns={'2023 Gift Giver':'Giver','2023 Gift Recipient':'2023'})
     print(names)
     print(history)
-
     print(history_renamed)
     # Merge df1 to df2 based on 'name' from df1 and 'Giver' from df2
     merged_df = pd.merge(history_renamed, names, left_on='Giver', right_on='name', how='left')
@@ -19,8 +21,12 @@ def import_gift_history():
     print(merged_sorted_df)
     merged_sorted_df.to_csv("ClarkeXmasList.csv", index=False)
 
-def import_last_list():
-    history = pd.read_csv(os.path.join("ClarkeXmasList.csv"),header=0)
+def import_last_list(year):
+    """ Read in last years xmas list list from csv"""
+    prefix= "ClarkeXmasList"
+    last_year = year-1
+    filename = prefix + str(last_year) + ".csv"
+    history = pd.read_csv(os.path.join(filename),header=0)
     return (history)
 
 def import_rel_grid(name):
@@ -60,13 +66,12 @@ def find_match_with_grid(df, grid,year):
 
 if __name__ == '__main__':
 
-    df = import_last_list()
-
+    df = import_last_list(year)
     # Add column for current year, deleting if already exists
     if str(year) in df.columns:
         df = df.drop(columns=[str(year)])
-    df.insert(3,str(year),'-')
-    df = df.drop(columns=['family'])
+    df.insert(2,str(year),'-')
+    #df = df.drop(columns=['family']) # WHy is this here? Relic from old formatting?
 
     adults_df = df[df['age'] == 'a']
     kids_df = df[df['age'] == 'k']
