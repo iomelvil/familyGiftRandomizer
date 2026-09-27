@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>Clarke family gift exchange</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#E5EBE4; --panel:#F3F6F2; --ink:#1B2A22; --muted:#56665C; --line:#C6D1C7;
+  --tag:#DCC195; --tag-edge:#B9975F; --tag-ink:#35240F; --tag-muted:#6F5533;
+  --accent:#A32638; --accent-ink:#FFFFFF; --mark:#F6E08A;
+  --kid-tag:#2F5A43; --kid-edge:#1C3A2A; --kid-ink:#F3EDDF; --kid-muted:#B7CDBF;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#13221A; --panel:#1B2E24; --ink:#E6EDE7; --muted:#9BAFA2; --line:#2E4739;
+    --tag:#CDAE7C; --tag-edge:#A8884F; --tag-ink:#2B1D0C; --tag-muted:#5C4524;
+    --accent:#E0566A; --accent-ink:#1A0A0D; --mark:#F2D66B;
+    --kid-tag:#4C8563; --kid-edge:#2C5A40; --kid-ink:#F6F1E4; --kid-muted:#CFE0D4;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#13221A; --panel:#1B2E24; --ink:#E6EDE7; --muted:#9BAFA2; --line:#2E4739;
+  --tag:#CDAE7C; --tag-edge:#A8884F; --tag-ink:#2B1D0C; --tag-muted:#5C4524;
+  --accent:#E0566A; --accent-ink:#1A0A0D; --mark:#F2D66B;
+    --kid-tag:#4C8563; --kid-edge:#2C5A40; --kid-ink:#F6F1E4; --kid-muted:#CFE0D4;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:400 17px/1.5 "Karla",system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:clamp(20px,5vw,56px) clamp(16px,4vw,40px) 64px}
+h1,h2,.name,.hist-name{font-family:"Young Serif",Georgia,"Times New Roman",serif;font-weight:400}
+h1{font-size:clamp(2rem,6vw,3.4rem);line-height:1.05;margin:0 0 .35em;letter-spacing:-.01em;max-width:14ch}
+.lede{color:var(--muted);margin:0 0 28px;max-width:52ch}
+
+.search{position:relative;max-width:560px}
+.search label{display:block;font-weight:700;margin-bottom:6px}
+.search input{width:100%;font:inherit;font-size:1.15rem;padding:14px 44px 14px 16px;border-radius:10px;
+  border:2px solid var(--line);background:var(--panel);color:var(--ink)}
+.search input:focus{outline:none;border-color:var(--accent)}
+.clear{position:absolute;right:8px;bottom:9px;border:0;background:none;color:var(--muted);
+  font:inherit;font-size:1.4rem;line-height:1;width:34px;height:34px;border-radius:6px;cursor:pointer}
+.clear[hidden]{display:none}
+
+.years{display:flex;gap:6px;overflow-x:auto;padding:4px 2px 10px;margin:26px 0 4px;scrollbar-width:thin}
+.years button{flex:none;font:inherit;font-weight:500;padding:8px 14px;border-radius:999px;cursor:pointer;
+  border:1.5px solid var(--line);background:transparent;color:var(--ink)}
+.years button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:700}
+.years button:first-child{font-size:1.05rem}
+button:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+.top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center}
+.art{width:clamp(150px,22vw,240px);height:auto;display:block}
+@media (max-width:640px){ .top{grid-template-columns:1fr} .art{display:none} }
+.yearhead{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:18px 0 6px;border-bottom:2px solid var(--ink);padding-bottom:10px}
+.yearhead .big{font-family:"Young Serif",Georgia,serif;font-size:clamp(3rem,10vw,5.5rem);line-height:.9}
+.yearhead .sub{color:var(--muted)}
+
+h2{font-size:1.5rem;margin:34px 0 14px;display:flex;gap:10px;align-items:baseline}
+h2 small{font-family:"Karla",sans-serif;font-size:.95rem;color:var(--muted)}
+
+.grid{list-style:none;margin:22px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.tag{position:relative;background:var(--tag);color:var(--tag-ink);padding:14px 16px 14px 44px;
+  clip-path:polygon(22px 0,100% 0,100% 100%,22px 100%,0 50%);
+  border-radius:0 8px 8px 0;min-height:96px;display:flex;flex-direction:column;justify-content:center;gap:2px}
+.tag::before{content:"";position:absolute;left:18px;top:50%;width:12px;height:12px;margin-top:-6px;
+  border-radius:50%;background:var(--bg);box-shadow:inset 0 0 0 2px var(--tag-edge)}
+.tag.kid{background:var(--kid-tag);color:var(--kid-ink);padding-right:52px}
+.tag.kid::before{box-shadow:inset 0 0 0 2px var(--kid-edge)}
+.tag.kid .lbl{color:var(--kid-muted)}
+.tag.kid mark{color:#2B1D0C}
+.jr{position:absolute;top:9px;right:10px;font-family:"Young Serif",Georgia,serif;font-size:.8rem;line-height:1;
+  padding:4px 6px 3px;border:1.5px solid currentColor;border-radius:4px;transform:rotate(-6deg);opacity:.9}
+.row{display:flex;align-items:baseline;gap:8px;min-width:0}
+.lbl{font-size:.8rem;color:var(--tag-muted);width:2.6em;flex:none}
+.name{font-size:1.2rem;line-height:1.25;overflow-wrap:anywhere}
+.row.to .name{font-size:1.02rem;font-family:"Karla",sans-serif;font-weight:700}
+mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
+
+.history{margin-top:26px;background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:18px 20px}
+.history[hidden]{display:none}
+.history h3{margin:0 0 12px;font-size:1.1rem}
+.hist-scroll{overflow-x:auto}
+.hist-table{border-collapse:collapse;width:100%;min-width:320px}
+.hist-table th{text-align:left;font-weight:700;color:var(--muted);font-size:.9rem;padding:0 12px 6px 0}
+.hist-table td{border-top:1px dashed var(--line);padding:6px 12px 6px 0;vertical-align:baseline}
+.hist-year{color:var(--muted);font-variant-numeric:tabular-nums;width:4em}
+.hist-table tr.sel td{background:var(--bg)}
+.hist-table tr.sel .hist-year{color:var(--accent);font-weight:700}
+.hist-name{font-size:1.02rem}
+.hist-none{color:var(--muted);font-style:italic}
+
+.empty{margin:30px 0;padding:22px;border:2px dashed var(--line);border-radius:12px;color:var(--muted)}
+.empty strong{color:var(--ink)}
+footer{margin-top:48px;color:var(--muted);font-size:.9rem}
+@media (max-width:520px){ .grid{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="top"><div class="intro">
+    <h1>Clarke family gift exchange</h1>
+    <p class="lede">Find who you're buying for and who's buying for you, this year or any past year.</p>
+    <div class="search">
+      <label for="q">Your name</label>
+      <input id="q" type="search" autocomplete="off" placeholder="Start typing, like “Ben” or “Aviva”">
+      <button class="clear" id="clear" type="button" aria-label="Clear search" hidden>&times;</button>
+    </div>
+    </div>
+    <svg class="art" viewBox="0 0 240 230" role="img" aria-label="A stack of wrapped presents">
+  <g stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round">
+    <!-- bottom box -->
+    <rect x="18" y="140" width="176" height="80" rx="4" fill="var(--accent)"/>
+    <rect x="12" y="126" width="188" height="22" rx="4" fill="var(--accent)"/>
+    <rect x="96" y="126" width="20" height="94" fill="var(--tag)"/>
+    <!-- middle box -->
+    <rect x="46" y="72" width="124" height="54" rx="4" fill="var(--panel)"/>
+    <rect x="40" y="62" width="136" height="18" rx="4" fill="var(--panel)"/>
+    <rect x="98" y="62" width="16" height="64" fill="var(--accent)"/>
+    <rect x="40" y="92" width="136" height="12" fill="var(--accent)" stroke="none"/>
+    <!-- top box -->
+    <rect x="78" y="30" width="60" height="32" rx="3" fill="var(--tag)"/>
+    <rect x="102" y="30" width="12" height="32" fill="var(--accent)"/>
+    <!-- bow -->
+    <path d="M108 30 C92 8 72 16 84 28 C90 33 100 32 108 30 Z" fill="var(--accent)"/>
+    <path d="M108 30 C124 8 144 16 132 28 C126 33 116 32 108 30 Z" fill="var(--accent)"/>
+    <circle cx="108" cy="30" r="5" fill="var(--accent)"/>
+  </g>
+  <!-- hanging tag on a string -->
+  <path d="M190 138 C206 150 212 164 208 176" fill="none" stroke="var(--muted)" stroke-width="1.8"/>
+  <g transform="rotate(14 214 196)">
+    <path d="M206 176 L226 176 L226 214 L202 214 L202 184 Z" fill="var(--tag)" stroke="var(--tag-edge)" stroke-width="2"/>
+    <circle cx="210" cy="184" r="3" fill="var(--bg)" stroke="var(--tag-edge)" stroke-width="1.5"/>
+  </g>
+</svg>
+    </div>
+    <div class="years" id="years" role="group" aria-label="Choose a year"></div>
+  </header>
+
+  <main>
+    <div class="yearhead"><span class="big" id="bigYear"></span><span class="sub" id="yearSub"></span></div>
+    <div id="results" aria-live="polite"></div>
+    <section class="history" id="history" aria-live="polite" hidden>
+      <h3 id="histTitle"></h3>
+      <div class="hist-scroll"><table class="hist-table"><thead><tr><th scope="col">Year</th><th scope="col">Gives to</th><th scope="col">Gets from</th></tr></thead><tbody id="histList"></tbody></table></div>
+    </section>
+  </main>
+  <footer id="foot"></footer>
+</div>
+
+<!-- ============================================================
+     GIFT LIST DATA
+     The page loads giftlist.csv from this same folder. To update each
+     year, upload the new CSV to the folder and name it giftlist.csv.
+     The copy below is only a backup, used if giftlist.csv can't load
+     (for example when opening this file straight from your computer).
+     Columns: Giver, age (a = adult, k = kid), then one column per year.
+     Use "-" for anyone who didn't take part that year.
+     ============================================================ -->
+<script type="text/csv" id="giftdata">
+Giver,age,2026,2025,2024,2023,2022,2021,2020,2019,2018,2017,2016
+Ben,a,Maddie M.,Russell,Bonnie,Maddie M.,Betsy,Julie W.,Wendy J.,Russell,Ace,Bobby,Ian C.
+Ian M.,a,Bonnie,Ernie,Maddie M.,Betsy,Julie W.,Ian C.,-,-,-,-,-
+Ernie,a,Betsey,Ian M.,Kiyon,Julie W.,Ian C.,Russell,Kelsey,Brandon,Wendy J.,David,Bobby
+Pam,a,Kiyon,Wendy J.,Christopher,Ian C.,David,Bill,Russell,Madeline,Brandon,Bonnie,Ace
+Sue,a,Ian M.,Ace,Juliet,Judd,Ian M.,David,Cindy,Betsey,Madeline,Elizabeth,Bill
+Julie W.,a,Kelsey,Ian C.,Madeline,Ian M.,Russell,Wendy J.,Bill,Juliet,Betsey,Ace,Betsey
+Brandon,a,Juliet,David,Ernie,Russell,Wendy J.,Judd,Madeline,Ernie,Juliet,Kiyon,Kelsey
+Wendy M.,a,Ernie,Betsey,Ace,Wendy J.,Judd,Juliet,Betsey,Elizabeth,Ernie,Bill,Pam
+Judd,a,Ace,Julie S.,Kelsey,David,Kiyon,Bobby,Juliet,Ben,Elizabeth,Ian C.,Ernie
+Bonnie,a,Richard,Kelsey,Bill,Brandon,Bobby,Kiyon,Ernie,David,Ben,Pam,Elizabeth
+Madeline,a,Ben,Bill,Russell,Julie S.,Brandon,Ernie,Elizabeth,Julie S.,David,Wendy M.,Wendy J.
+Ian C.,a,Elizabeth,Judd,Sue,Kiyon,Ernie,Brandon,Ben,Kiyon,Julie S.,Judd,Sue
+Ace,a,Bill,Christopher,Julie W.,Ernie,Pam,Julie S.,David,Judd,Kiyon,Wendy J.,Julie W.
+Juliet,a,Brandon,Elizabeth,Wendy M.,Pam,Bonnie,Ben,Julie S.,Sue,Judd,Russell,Brandon
+Bobby,a,Christopher,Brandon,Judd,Bonnie,Christopher,Pam,Kiyon,Bonnie,Sue,Julie S.,Russell
+Elizabeth,a,Wendy M.,Ben,Wendy J.,Kelsey,Juliet,Bonnie,Judd,Ian C.,Bonnie,Sue,David
+Kiyon,a,Bobby,Richard,Ian C.,Juliet,Julie S.,Kelsey,Sue,Bobby,Ian C.,Brandon, -
+Christopher,a,Russell,Kiyon,Pam,Bobby,Ben,-,-,-,-,-,-
+Betsey,a,Julie S.,Madeline,David,Wendy M.,Sue,Ace,Bonnie,Kelsey,Bobby,Juliet,Judd
+Bill,a,Wendy J.,Bobby,Julie S.,Madeline,Kelsey,Sue,Ian C.,Wendy M.,Kelsey,Madeline,Bonnie
+David,a,Madeline,Pam,Elizabeth,Richard,Madeline,Elizabeth,Bobby,Ace,Wendy M.,Ernie,Cindy
+Wendy J.,a,Sue,Maddie M.,Betsey,Christopher,Elizabeth,Madeline,Brandon,Pam,Cindy,Julie W.,Juliet
+Russell,a,Ian C.,Sue,Bobby,Elizabeth,Ace,Ian M.,Wendy M.,Bill,Pam,Betsey,Madeline
+Kelsey,a,Judd,Bonnie,Richard,Ace,Bill,Wendy M.,Ace,Julie W.,Bill,Cindy,Ben
+Julie S.,a,Julie W.,Juliet,Ben,Bill,Wendy M.,Betsey,Pam,Cindy,Julie W.,Ben, - 
+Maddie M.,a,Pam,Wendy M.,Brandon,Ben,-,-,-,-,-,-,-
+Richard,a,David,Julie W.,Ian M.,Sue,-,-,-,-,-,-,-
+Wilton,k,Wren,Aviva,Noah,Reed,Aviva,Clement,Noah,Clarke,Twyla,Aviva,Twyla
+Alden,k,Reed,Noah,Evie,Aviva,Clement,Twyla,-,-,-,-,-
+Aviva,k,Twyla,Clarke,Clement,Myles,Twyla,Cole,Clarke,Wilton,Clarke,Twyla,Wilton
+Clarke,k,Cole,Wren,Elizabeth J.,Twyla,Cole,Noah,Clement,Twyla,Aviva,-,-
+Noah,k,Elizabeth J.,Twyla,Reed,Cole,Clarke,Alden,Twyla,Cole,Wilton,-,-
+Cole,k,Callan,Evie,Twyla,Clement,Noah,Clarke,Aviva,Noah,-,-,-
+Twyla,k,Aviva,Myles,Wilton,Noah,Alden,Wilton,Cole,Aviva,Noah,Wilton,Aviva
+Clement,k,Myles,Elizabeth J.,Cole,Alden,Reed,Aviva,Wilton,-,-,-,-
+Reed,k,Evie,Wilton,Myles,Aviva,Wilton,-,-,-,-,-,-
+Elizabeth J.,k,Howell,Clement,Wren,Clarke,-,-,-,-,-,-,-
+Myles,k,Noah,Reed,Aviva,Elizabeth J.,-,-,-,-,-,-,-
+Wren,k,Clement,Cole,Alden,-,-,-,-,-,-,-,-
+Evie,k,Morgan,Alden,Clarke,-,-,-,-,-,-,-,-
+</script>
+
+<script>
+var DATA_FILE = 'giftlist.csv';
+fetch(DATA_FILE, { cache: 'no-cache' })
+  .then(function(r){ if (!r.ok) throw new Error(r.status); return r.text(); })
+  .then(function(t){ if (!/^\s*Giver\s*,/i.test(t)) throw new Error('bad csv'); start(t); })
+  .catch(function(){ start(document.getElementById('giftdata').textContent); });
+
+function start(rawText){
+  var raw = rawText.replace(/^\uFEFF/, '').trim();
+  var lines = raw.split(/\r?\n/).filter(function(l){return l.trim();});
+  var head = lines[0].split(',').map(function(s){return s.trim();});
+  var years = head.slice(2);
+  var people = lines.slice(1).map(function(l){
+    var c = l.split(',').map(function(s){return s.trim();});
+    var gifts = {};
+    years.forEach(function(y,i){ var v = c[i+2]; gifts[y] = (!v || v === '-') ? null : v; });
+    return { name:c[0], group:(c[1]||'').toLowerCase()==='k' ? 'kid' : 'adult', gifts:gifts };
+  });
+
+  var yearsEl = document.getElementById('years'), q = document.getElementById('q'),
+      clearBtn = document.getElementById('clear'), results = document.getElementById('results');
+  var state = { year: years[0], query: '' };
+
+  try { var saved = localStorage.getItem('giftName'); if (saved) state.query = saved; } catch(e){}
+  q.value = state.query;
+
+  years.forEach(function(y,i){
+    var b = document.createElement('button');
+    b.type = 'button'; b.textContent = i === 0 ? y + ' (this year)' : y; b.dataset.year = y;
+    b.addEventListener('click', function(){ state.year = y; render(); });
+    yearsEl.appendChild(b);
+  });
+
+  function esc(s){ return s.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  function hl(name, query){
+    if (!query) return esc(name);
+    var i = name.toLowerCase().indexOf(query.toLowerCase());
+    if (i < 0) return esc(name);
+    return esc(name.slice(0,i)) + '<mark>' + esc(name.slice(i,i+query.length)) + '</mark>' + esc(name.slice(i+query.length));
+  }
+  function matches(p, query){ return !query || p.name.toLowerCase().indexOf(query.toLowerCase()) >= 0; }
+
+  function tag(p, query){
+    return '<li class="tag' + (p.group === 'kid' ? ' kid' : '') + '">' + (p.group === 'kid' ? '<span class="jr">Jr.</span>' : '') + '<div class="row"><span class="lbl">From</span><span class="name">' + hl(p.name, query) +
+      '</span></div><div class="row to"><span class="lbl">To</span><span class="name">' + hl(p.gifts[state.year], query) + '</span></div></li>';
+  }
+
+  function render(){
+    var query = state.query.trim(), y = state.year;
+    Array.prototype.forEach.call(yearsEl.children, function(b){ b.setAttribute('aria-pressed', b.dataset.year === y); });
+    clearBtn.hidden = !query;
+
+    var inYear = people.filter(function(p){ return p.gifts[y]; });
+    document.getElementById('bigYear').textContent = y;
+    document.getElementById('yearSub').textContent = inYear.length + ' people in the exchange';
+
+    var matched = people.filter(function(p){ return matches(p, query); });
+    // People who only ever appear as recipients (e.g. new this year) still count
+    if (query && !matched.length){
+      var seen = {};
+      people.forEach(function(p){ years.forEach(function(yr){ var r = p.gifts[yr];
+        if (r && !seen[r] && r.toLowerCase().indexOf(query.toLowerCase()) >= 0){ seen[r] = 1;
+          matched.push({ name:r, group:'', gifts:{} }); } }); });
+    }
+    var hit = function(n){ return !!n && n.toLowerCase().indexOf(query.toLowerCase()) >= 0; };
+    var shown = !query ? inYear : inYear.filter(function(p){ return hit(p.name) || hit(p.gifts[y]); });
+    // Show the searched person's own tag (giving) before the tags where they receive
+    shown = shown.slice().sort(function(a,b){ return (hit(b.name)?1:0) - (hit(a.name)?1:0); });
+
+    // History panel: when the search narrows to one person
+    var exact = matched.filter(function(p){ return p.name.toLowerCase() === query.toLowerCase(); });
+    var one = exact.length === 1 ? exact[0] : (matched.length === 1 && query ? matched[0] : null);
+    var hist = document.getElementById('history');
+    if (one){
+      document.getElementById('histTitle').textContent = one.name + ' through the years';
+      var cell = function(n){ return n ? '<span class="hist-name">' + esc(n) + '</span>' : '<span class="hist-none">not in it</span>'; };
+      document.getElementById('histList').innerHTML = years.map(function(yr){
+        var from = people.filter(function(p){ return p.gifts[yr] === one.name; }).map(function(p){ return p.name; }).join(', ');
+        return '<tr class="' + (yr === y ? 'sel' : '') + '"><td class="hist-year">' + yr + '</td><td>' +
+          cell(one.gifts[yr]) + '</td><td>' + cell(from) + '</td></tr>';
+      }).join('');
+      hist.hidden = false;
+    } else { hist.hidden = true; }
+
+    if (!shown.length){
+      if (query && matched.length){
+        results.innerHTML = '<div class="empty"><strong>' + esc(matched.map(function(p){return p.name;}).join(', ')) +
+          '</strong> ' + (matched.length > 1 ? "weren't" : "wasn't") + ' in the ' + y + ' exchange. Pick another year above.</div>';
+      } else {
+        results.innerHTML = '<div class="empty">No one named <strong>“' + esc(query) + '”</strong> is on the list. Check the spelling, or clear the search to see everyone.</div>';
+      }
+      return;
+    }
+
+    results.innerHTML = '<ul class="grid">' + shown.map(function(p){ return tag(p, query); }).join('') + '</ul>';
+  }
+
+  q.addEventListener('input', function(){
+    state.query = q.value;
+    try { localStorage.setItem('giftName', q.value.trim()); } catch(e){}
+    render();
+  });
+  clearBtn.addEventListener('click', function(){
+    q.value = ''; state.query = '';
+    try { localStorage.removeItem('giftName'); } catch(e){}
+    render(); q.focus();
+  });
+
+  document.getElementById('foot').textContent = 'Gift list covers ' + years[years.length-1] + '–' + years[0] + '.';
+  render();
+}
+</script>
+</body>
+</html>
