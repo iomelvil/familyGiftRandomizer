@@ -1,0 +1,41 @@
+Giver,age,2025,2024,2023,2022,2021,2020,2019,2018,2017,2016
+Ben,a,Russell,Bonnie,Maddie M.,Betsy,Julie W.,Wendy J.,Russell,Ace,Bobby,Ian C.
+Ian M.,a,Ernie,Maddie M.,Betsy,Julie W.,Ian C.,-,-,-,-,-
+Ernie,a,Ian M.,Kiyon,Julie W.,Ian C.,Russell,Kelsey,Brandon,Wendy J.,David,Bobby
+Pam,a,Wendy J.,Christopher,Ian C.,David,Bill,Russell,Madeline,Brandon,Bonnie,Ace
+Sue,a,Ace,Juliet,Judd,Ian M.,David,Cindy,Betsey,Madeline,Elizabeth,Bill
+Julie W.,a,Ian C.,Madeline,Ian M.,Russell,Wendy J.,Bill,Juliet,Betsey,Ace,Betsey
+Brandon,a,David,Ernie,Russell,Wendy J.,Judd,Madeline,Ernie,Juliet,Kiyon,Kelsey
+Wendy M.,a,Betsey,Ace,Wendy J.,Judd,Juliet,Betsey,Elizabeth,Ernie,Bill,Pam
+Judd,a,Julie S.,Kelsey,David,Kiyon,Bobby,Juliet,Ben,Elizabeth,Ian C.,Ernie
+Bonnie,a,Kelsey,Bill,Brandon,Bobby,Kiyon,Ernie,David,Ben,Pam,Elizabeth
+Madeline,a,Bill,Russell,Julie S.,Brandon,Ernie,Elizabeth,Julie S.,David,Wendy M.,Wendy J.
+Ian C.,a,Judd,Sue,Kiyon,Ernie,Brandon,Ben,Kiyon,Julie S.,Judd,Sue
+Ace,a,Christopher,Julie W.,Ernie,Pam,Julie S.,David,Judd,Kiyon,Wendy J.,Julie W.
+Juliet,a,Elizabeth,Wendy M.,Pam,Bonnie,Ben,Julie S.,Sue,Judd,Russell,Brandon
+Bobby,a,Brandon,Judd,Bonnie,Christopher,Pam,Kiyon,Bonnie,Sue,Julie S.,Russell
+Elizabeth,a,Ben,Wendy J.,Kelsey,Juliet,Bonnie,Judd,Ian C.,Bonnie,Sue,David
+Kiyon,a,Richard,Ian C.,Juliet,Julie S.,Kelsey,Sue,Bobby,Ian C.,Brandon, -
+Christopher,a,Kiyon,Pam,Bobby,Ben,-,-,-,-,-,-
+Betsey,a,Madeline,David,Wendy M.,Sue,Ace,Bonnie,Kelsey,Bobby,Juliet,Judd
+Bill,a,Bobby,Julie S.,Madeline,Kelsey,Sue,Ian C.,Wendy M.,Kelsey,Madeline,Bonnie
+David,a,Pam,Elizabeth,Richard,Madeline,Elizabeth,Bobby,Ace,Wendy M.,Ernie,Cindy
+Wendy J.,a,Maddie M.,Betsey,Christopher,Elizabeth,Madeline,Brandon,Pam,Cindy,Julie W.,Juliet
+Russell,a,Sue,Bobby,Elizabeth,Ace,Ian M.,Wendy M.,Bill,Pam,Betsey,Madeline
+Kelsey,a,Bonnie,Richard,Ace,Bill,Wendy M.,Ace,Julie W.,Bill,Cindy,Ben
+Julie S.,a,Juliet,Ben,Bill,Wendy M.,Betsey,Pam,Cindy,Julie W.,Ben, - 
+Maddie M.,a,Wendy M.,Brandon,Ben,-,-,-,-,-,-,-
+Richard,a,Julie W.,Ian M.,Sue,-,-,-,-,-,-,-
+Wilton,k,Aviva,Noah,Reed,Aviva,Clement,Noah,Clarke,Twyla,Aviva,Twyla
+Alden,k,Noah,Evie,Aviva,Clement,Twyla,-,-,-,-,-
+Aviva,k,Clarke,Clement,Myles,Twyla,Cole,Clarke,Wilton,Clarke,Twyla,Wilton
+Clarke,k,Wren,Elizabeth J.,Twyla,Cole,Noah,Clement,Twyla,Aviva,-,-
+Noah,k,Twyla,Reed,Cole,Clarke,Alden,Twyla,Cole,Wilton,-,-
+Cole,k,Evie,Twyla,Clement,Noah,Clarke,Aviva,Noah,-,-,-
+Twyla,k,Myles,Wilton,Noah,Alden,Wilton,Cole,Aviva,Noah,Wilton,Aviva
+Clement,k,Elizabeth J.,Cole,Alden,Reed,Aviva,Wilton,-,-,-,-
+Reed,k,Wilton,Myles,Aviva,Wilton,-,-,-,-,-,-
+Elizabeth J.,k,Clement,Wren,Clarke,-,-,-,-,-,-,-
+Myles,k,Reed,Aviva,Elizabeth J.,-,-,-,-,-,-,-
+Wren,k,Cole,Alden,-,-,-,-,-,-,-,-
+Evie,k,Alden,Clarke,-,-,-,-,-,-,-,-
